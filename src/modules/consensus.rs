@@ -20,7 +20,7 @@ pub fn pow(block: &mut Block, transactions: &[Transaction]) {
 
 // Function to calculate hash value
 fn calculate_hash(block: &Block, transactions: &[Transaction], nonce: u64) -> String {
-    let mut hasher = sha3::Sha3_256::new(); // Create new SHA-3 hasher
+    let mut hasher = Sha3_256::new(); // Create new SHA-3 hasher
     let serialized_transactions = bincode::serialize(&transactions).expect("Failed to serialize transactions"); // Serialize transactions
     hasher.update(block.id.to_be_bytes()); // Hash block ID
     hasher.update(block.prev_hash.as_bytes()); // Hash previous block hash

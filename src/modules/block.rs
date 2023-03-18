@@ -1,8 +1,8 @@
 use std::time::{SystemTime, UNIX_EPOCH};
 use sha3::{Digest, Sha3_256};
 use std::io::Write;
-use bincode::*;
-use hex::*;
+//use bincode::*;
+//use hex::*;
 
 pub struct Block {
     pub id: u64,
@@ -41,7 +41,7 @@ impl Block {
         }
     }
 
-    pub fn get_hash(&self) -> String {
+    pub fn get_hash(&self) -> Result<String, Box<dyn std::error::Error>> {
         let mut hasher = Sha3_256::new();
         hasher.update(self.id.to_be_bytes());
         hasher.update(self.prev_hash.as_bytes());
@@ -50,10 +50,11 @@ impl Block {
         hasher.update(self.nonce.to_be_bytes());
         if let Some(parents) = &self.parents {
             let serialized_parents = bincode::serialize(&parents).expect("Failed to serialize parents");
-            hasher.write(&serialized_parents);
+            hasher.write(&serialized_parents)?;
         }
         let result = hasher.finalize();
-        hex::encode(result)
+        Ok(hex::encode(result))
+
     }
     
     // Add other methods for your Block operations
