@@ -22,10 +22,10 @@ Smart contracts support for customizable publication and review processes
 We are just getting started ...
 
 ## Phase 1: Basic Functionality
-- [ ] Implement basic block and transaction structure
-- [ ] Implement DAG data structure
-- [ ] Implement proof-of-work consensus algorithm
-- [ ] Implement basic CLI for node management
+- [ ] Implement basic block and transaction structure     ▮▮▯▯▯▯▯▯▯▯▯▯▯▯ 15%
+- [ ] Implement DAG data structure                        ▮▯▯▯▯▯▯▯▯▯▯▯▯▯ 5%
+- [ ] Implement mock-up proof-of-work consensus algorithm ▮▮▯▯▯▯▯▯▯▯▯▯▯▯ 10%
+- [ ] Implement basic CLI for node management             ▯▯▯▯▯▯▯▯▯▯▯▯▯▯ 0%
 
 ## Phase 2: Advanced Functionality
 - [ ] Implement transaction validation and script system
