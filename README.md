@@ -3,7 +3,8 @@ P3R: A decentralized academic publication platform utilizing blockchain and DAG 
 
 # Features
 - Decentralized storage and distribution of academic articles
-P3R token system to incentivize authors, reviewers, and editors
+
+- P3R token system to incentivize authors, reviewers, and editors
 
 - Custom consensus mechanism focused on academic reviews and citation metrics
 Smart contracts support for customizable publication and review processes
