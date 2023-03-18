@@ -1,14 +1,23 @@
 pub struct DAG {
-    // Your DAG fields go here
+    pub nodes: Vec<Node>,
+}
+
+pub struct Node {
+    pub block: Block,
+    pub parents: Vec<String>,
 }
 
 impl DAG {
     pub fn new() -> Self {
-        // Initialize your DAG and return it
+        let nodes = vec![];
+
+        Self { nodes }
+    }
+
+    pub fn add_block(&mut self, block: Block, parents: Vec<String>) {
+        let node = Node { block, parents };
+        self.nodes.push(node);
     }
 
     // Add other methods for your DAG operations
 }
-
-// Add additional structs, enums, and implementations as needed
-
