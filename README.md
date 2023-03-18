@@ -26,7 +26,7 @@ We are just getting started ...
 ▮▮▯▯▯▯▯▯▯▯▯▯▯▯ 15%
 - [ ] Implement DAG data structure                        
 ▮▯▯▯▯▯▯▯▯▯▯▯▯▯ 5%
-- [ ] Implement mock-up proof-of-work consensus algorithm 
+- [ ] Implement mock-up proof-of-work consensus algorithm  
 ▮▮▯▯▯▯▯▯▯▯▯▯▯▯ 10%
 - [ ] Implement basic CLI for node management             
 ▯▯▯▯▯▯▯▯▯▯▯▯▯▯ 0%
