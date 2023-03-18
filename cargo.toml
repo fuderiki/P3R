@@ -6,6 +6,7 @@ edition = "2023"
 
 [dependencies]
 # Add your project's dependencies here
+sha3 = "0.10.6"
 
 [dev-dependencies]
 # Add development dependencies here, if any
