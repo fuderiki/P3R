@@ -2,11 +2,11 @@
 name = "p3r"
 version = "0.0.1"
 authors = ["Frederic SERAPHINE <frederic＠designlab.ac>"]
-edition = "2023"
+edition = "2021"
 
 [dependencies]
 # Add your project's dependencies here
-sha3 = "0.10.6"
+sha3 = "0.10.5"
 
 [dev-dependencies]
 # Add development dependencies here, if any

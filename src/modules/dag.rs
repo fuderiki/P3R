@@ -18,17 +18,20 @@ impl DAG {
 
     pub fn add_block(&mut self, block: Block) -> bool {
         // Check if block is already in DAG
-        if self.blocks.contains_key(&block.id) {
+        if self.blocks.contains_key(&block.hash) {
             return false;
         }
 
         // Check if block points to non-existent parent(s)
-        if let Some(parents) = block.parents {
+        if let Some(parents) = &block.parents {
             for parent_id in parents {
                 if !self.blocks.contains_key(&parent_id) {
                     return false;
                 }
             }
+        }
+        else {
+            return false;
         }
 
         // Add block to DAG
