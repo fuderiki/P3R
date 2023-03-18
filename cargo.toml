@@ -1,0 +1,25 @@
+[package]
+name = "p3r"
+version = "0.0.1"
+authors = ["Frederic SERAPHINE <frederic＠designlab.ac>"]
+edition = "2023"
+
+[dependencies]
+# Add your project's dependencies here
+
+[dev-dependencies]
+# Add development dependencies here, if any
+
+[[bin]]
+name = "p3r"
+path = "src/main.rs"
+
+[lib]
+name = "p3r_lib"
+path = "src/lib.rs"
+
+[features]
+# Add your project's features here, if any
+
+[build-dependencies]
+# Add build dependencies here, if any
