@@ -21,7 +21,7 @@ Smart contracts support for customizable publication and review processes
 To interact with the P3R platform, use the provided user interface or API. Detailed instructions and examples for the user interface and API can be found in the docs folder.
 
 # Contributing
-Contributions to the P3R project are welcome! 
+Contributions to the P3R project are welcome! Please read the CONTRIBUTING.md(CONTRIBUTING.md) file for guidelines on how to contribute.
 
 # License
 The P3R project is released under the GNU General Public License v3.0.
