@@ -41,19 +41,22 @@ impl Block {
         }
     }
 
-    pub fn get_hash(&self) -> Result<String, Box<dyn std::error::Error>> {
+    pub fn get_hash(&self) -> String {
         let mut hasher = Sha3_256::new();
         hasher.update(self.id.to_be_bytes());
         hasher.update(self.prev_hash.as_bytes());
         hasher.update(self.timestamp.to_be_bytes());
         hasher.update(self.data.as_bytes());
         hasher.update(self.nonce.to_be_bytes());
-        if let Some(parents) = &self.parents {
-            let serialized_parents = bincode::serialize(&parents).expect("Failed to serialize parents");
-            hasher.write(&serialized_parents)?;
+        match &self.parents {
+            Some(parents) => {
+                let serialized_parents = bincode::serialize(&parents).expect("Failed to serialize parents");
+                hasher.update(&serialized_parents);
+            }
+            None => (),
         }
         let result = hasher.finalize();
-        Ok(hex::encode(result))
+        hex::encode(result)
 
     }
     

@@ -28,9 +28,12 @@ fn calculate_hash(block: &Block, transactions: &[Transaction], nonce: u64) -> St
     hasher.update(block.data.as_bytes()); // Hash block data
     hasher.update(nonce.to_be_bytes()); // Hash nonce
     hasher.update(&serialized_transactions); // Hash serialized transactions
-    if let Some(parents) = &block.parents { // Check if block has parent blocks
-        let serialized_parents = bincode::serialize(&parents).expect("Failed to serialize parents"); // Serialize parent block IDs
-        hasher.update(&serialized_parents); // Hash serialized parent block IDs
+    match &block.parents {
+        Some(parents) => { // Check if block has parent blocks
+            let serialized_parents = bincode::serialize(&parents).expect("Failed to serialize parents"); // Serialize parent block IDs
+            hasher.update(&serialized_parents); // Hash serialized parent block IDs
+        }
+        None => (),
     }
     let result = hasher.finalize(); // Finalize hash
     hex::encode(result) // Return hex-encoded hash value
