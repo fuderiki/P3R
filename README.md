@@ -17,6 +17,38 @@ Smart contracts support for customizable publication and review processes
 
 - University and school partnerships for a global and robust academic network
 
+# Preliminary Roadmap
+
+We are just getting started ...
+
+## Phase 1: Basic Functionality
+- [ ] Implement basic block and transaction structure
+- [ ] Implement DAG data structure
+- [ ] Implement proof-of-work consensus algorithm
+- [ ] Implement basic CLI for node management
+
+## Phase 2: Advanced Functionality
+- [ ] Implement transaction validation and script system
+- [ ] Implement UTXO model for transaction outputs
+- [ ] Implement P2P networking for node communication
+- [ ] Implement transaction pool for unconfirmed transactions
+
+## Phase 3: Decentralized Storage
+- [ ] Implement decentralized storage system using IPFS
+- [ ] Integrate storage system with DAG for file retrieval
+- [ ] Implement reward system for storage providers
+
+## Phase 4: Governance and Incentives
+- [ ] Implement governance system for node management and protocol changes
+- [ ] Implement reward system for node operators and contributors
+- [ ] Implement incentive system for academic publishing and reviewing
+
+## Phase 5: Additional Features
+- [ ] Implement smart contract functionality
+- [ ] Integrate with external data sources for real-world data
+- [ ] Implement light client for mobile devices
+- [ ] Implement browser extension for easy access to academic articles
+
 
 # Usage
 To interact with the P3R platform, use the provided user interface or API. Detailed instructions and examples for the user interface and API can be found in the docs folder.
