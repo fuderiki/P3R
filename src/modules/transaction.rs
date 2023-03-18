@@ -1,6 +1,7 @@
 use std::time::{SystemTime, UNIX_EPOCH};
+use serde::{Deserialize, Serialize};
 
-
+#[derive(Serialize, Deserialize)]
 pub struct Transaction {
     pub from: String,
     pub to: String,

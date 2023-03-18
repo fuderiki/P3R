@@ -2,8 +2,8 @@ use crate::modules::block::Block;
 use std::collections::{HashMap, HashSet};
 
 pub struct DAG {
-    pub blocks: HashMap<String, Block>,
-    pub tip_ids: HashSet<String>,
+    pub blocks: HashMap<u64, Block>,
+    pub tip_ids: HashSet<u64>,
     pub tips: Vec<String>,
 }
 
@@ -17,45 +17,37 @@ impl DAG {
     }
 
     pub fn add_block(&mut self, block: Block) -> bool {
-        // Check if block is already in DAG
-        if self.blocks.contains_key(&block.hash) {
+        // Check if block already exists
+        if self.blocks.contains_key(&block.id) {
             return false;
         }
 
         // Check if block points to non-existent parent(s)
         if let Some(parents) = &block.parents {
-            for parent_id in parents {
-                if !self.blocks.contains_key(&parent_id) {
-                    return false;
-                }
+            if !parents.iter().all(|parent_id| self.blocks.contains_key(parent_id)) {
+                return false;
             }
-        }
-        else {
-            return false;
         }
 
         // Add block to DAG
-        self.blocks.insert(block.id.clone(), block);
-        self.tip_ids.insert(block.id.clone());
+        self.blocks.insert(block.id, block);
 
         // Update tips
-        if let Some(parents) = self.blocks[&block.id].parents {
-            for parent_id in parents {
-                if self.tip_ids.remove(&parent_id) {
-                    self.tips.retain(|tip_id| *tip_id != parent_id);
-                }
-            }
-        }
-        self.tips.push(block.id);
+        self.update_tips();
 
         true
     }
 
-    pub fn get_tips(&self) -> Vec<&Block> {
-        self.tips.iter().map(|tip_id| &self.blocks[tip_id]).collect()
+    pub fn get_block(&self, id: &u64) -> Option<&Block> {
+        self.blocks.get(id)
     }
 
-    pub fn get_block(&self, id: &str) -> Option<&Block> {
-        self.blocks.get(id)
+    pub fn get_tips(&self) -> &Vec<String> {
+        &self.tips
+    }
+
+    fn update_tips(&mut self) {
+        // TODO: Implement update_tips function
+        self.tips = vec![];
     }
 }
